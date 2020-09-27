@@ -1,0 +1,314 @@
+/*
+** Text type inputs
+*/
+.sano-input.sano-input {
+    -webkit-appearance: none;
+    padding: 0.625rem 1rem;
+    color: #54223B;
+}
+
+/* Chrome/Opera/Safari */
+.sano-input::-webkit-input-placeholder {
+    color: #54223B;
+    opacity: 1;
+}
+
+/* Firefox 19+ */
+.sano-input::-moz-placeholder {
+    color: #54223B;
+    opacity: 1;
+}
+
+/* IE 10+ */
+.sano-input:-ms-input-placeholder {
+    color: #54223B;
+    opacity: 1;
+}
+
+.sano-footer-input {
+    padding: 0.65rem 1rem;
+    border-radius: 0.125rem;
+    height: 40px;
+}
+
+/* Chrome/Opera/Safari */
+.sano-footer-input::-webkit-input-placeholder {
+    opacity: 0.8;
+}
+
+/* Firefox 19+ */
+.sano-footer-input::-moz-placeholder {
+    opacity: 0.8;
+}
+
+/* IE 10+ */
+.sano-footer-input:-ms-input-placeholder {
+    opacity: 0.8;
+}
+
+/* Chrome/Opera/Safari */
+.sano-footer-input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+/* Firefox 19+ */
+.sano-footer-input:focus::-moz-placeholder {
+    opacity: 0;
+}
+
+/* IE 10+ */
+.sano-footer-input:focus:-ms-input-placeholder {
+    opacity: 0;
+}
+
+.sano-input.sano-input-white,
+.sano-input-white {
+    color: #fff;
+}
+
+/* Chrome/Opera/Safari */
+.sano-input-white::-webkit-input-placeholder {
+    color: #fff;
+}
+
+/* Firefox 19+ */
+.sano-input-white::-moz-placeholder {
+    color: #fff;
+}
+
+/* IE 10+ */
+.sano-input-white:-ms-input-placeholder {
+    color: #fff;
+}
+
+/* Chrome/Opera/Safari */
+.sano-input-burgundy::-webkit-input-placeholder {
+    color: #54223B;
+}
+
+/* Firefox 19+ */
+.sano-input-burgundy::-moz-placeholder {
+    color: #54223B;
+}
+
+/* IE 10+ */
+.sano-input-burgundy:-ms-input-placeholder {
+    color: #54223B;
+}
+
+/*
+** Radio buttons (toggles for modal popups)
+*/
+/* whole rating element */
+.sano-toggle-modal.swal2-popup .swal2-radio,
+.sano-toggle-radio{
+    display: inline-flex !important;
+    border-radius: 100px;
+    padding: 0.35rem;
+    overflow: visible;
+    max-width: 300px;
+    position: relative;
+}
+
+.sano-toggle-modal.swal2-popup .swal2-radio {
+    margin: 0 0 0 110px;
+    top: 0.5rem;
+}
+
+@media (max-width: 575px) {
+    .sano-toggle-modal.swal2-popup .swal2-radio {
+        margin: 0.5rem 0 0 0;
+        top: 0;
+    }
+}
+
+.sano-toggle-modal.swal2-popup .swal2-radio:before,
+.sano-toggle-radio:before {
+    content: "";
+    @apply absolute left-0 right-0 bottom-0 top-0;
+    background-color: #f1f1f1;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+/* each option */
+.sano-toggle-modal.swal2-popup .swal2-radio label,
+.sano-toggle-label {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.935rem;
+    color: #54223B;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* hide radios (but not with display:none / opacity:0) to preserve accessibility */
+.sano-toggle-modal input[type='radio'],
+.sano-toggle-radio input[type='radio'] {
+    position: absolute;
+    z-index: 2;
+    left: -99999px;
+}
+
+.sano-toggle-radio span {
+    display: block;
+    line-height: 1.5;
+}
+
+/* Add background elements for each option */
+.sano-toggle-modal input[type='radio'] + span:before,
+.sano-toggle-radio input[type='radio'] + span:before {
+    content: '';
+    position: absolute;
+    left: -0.4rem;
+    top: -0.35rem;
+    right: -0.4rem;
+    bottom: -0.35rem;
+    border-radius: 100px;
+    z-index: -1;
+}
+
+/* change backgrounds to blue when associated input is checked */
+.sano-toggle-modal input[type='radio']:checked + span:before,
+.sano-toggle-radio input[type='radio']:checked + span:before {
+    background-color: #433ea5;
+}
+
+/* change text to white when associated input is checked */
+.sano-toggle-modal input[type='radio']:checked + span,
+.sano-toggle-radio input[type='radio']:checked + span {
+    color: #fff;
+}
+
+/* target only the 2nd of 2 option toggles - these will be green when selected */
+.sano-toggle-modal label:last-child:nth-child(2) input[type='radio']:checked + span:before,
+.sano-toggle-radio label:last-child:nth-child(2) input[type='radio']:checked + span:before {
+    background-color: #3DA498;
+}
+
+/* show focus */
+.sano-toggle-modal input[type='radio']:focus + span:before,
+.sano-toggle-radio input[type='radio']:focus + span:before {
+    border: 2px solid #9EC3FB;
+}
+
+/* Colour variations on sano-toggle radio */
+.sano-toggle-radio.sano-toggle-yellow input[type='radio']:checked + span:before,
+.sano-toggle-radio.sano-toggle-yellow label:last-child:nth-child(2) input[type='radio']:checked + span:before {
+    background-color: #FFD708;
+}
+
+.sano-toggle-pink .sano-toggle-label {
+    @apply text-sano-red-orange text-xs;
+    z-index: 1;
+}
+
+.sano-toggle-pink.sano-toggle-radio:before {
+    @apply bg-sano-pink z-0;
+}
+
+.sano-toggle-pink.sano-toggle-radio input[type='radio']:checked + span:before,
+.sano-toggle-pink.sano-toggle-radio label:last-child:nth-child(2) input[type='radio']:checked + span:before {
+    background-color: #fff;
+}
+
+.sano-toggle-radio.sano-toggle-white:before {
+    @apply border border-sano-pink;
+    background: rgba(255,255,255,0.8);
+}
+
+.sano-toggle-white.sano-toggle-radio input[type='radio']:checked + span:before,
+.sano-toggle-white.sano-toggle-radio label:last-child:nth-child(2) input[type='radio']:checked + span:before {
+    @apply bg-sano-pink;
+}
+
+.sano-toggle-pink.sano-toggle-radio input[type='radio']:checked + span,
+.sano-toggle-white.sano-toggle-radio input[type='radio']:checked + span,
+.sano-toggle-yellow.sano-toggle-radio input[type='radio']:checked + span {
+    @apply text-sano-burgundy;
+}
+
+/* tick */
+.sano-tick {
+    position: relative;
+    width: 0.5rem;
+    height: 1rem;
+    transform: scale(0.85) translate(0.55rem, 0.15rem) rotate(45deg);
+}
+
+.sano-tick:before,
+.sano-tick:after {
+    content: "";
+    position: absolute;
+    background: #F75338;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1px 0;
+}
+
+.sano-tick:after {
+    padding: 0 1px;
+    left: auto;
+    top: 0;
+}
+
+/* checkboxes & radios - common CSS rules */
+.sano-checkbox input,
+.sano-radio input {
+    position: absolute;
+    left: -99999px;
+}
+
+.sano-checkbox input:not(:checked) + .sano-check-label .sano-tick,
+.sano-radio input:not(:checked) + .sano-radio-label .sano-tick {
+    display: none;
+}
+
+.sano-checkbox input:checked + .sano-check-label .sano-tick,
+.sano-radio input:checked + .sano-radio-label .sano-tick {
+    display: block;
+}
+
+.sano-checkbox input:focus + .sano-check-label .tickbox:after,
+.sano-radio input:focus + .sano-radio-label .tickbox:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #9EC3FB;
+    border-radius: inherit;
+}
+
+/* Checkbox specific */
+.sano-check-label {
+    padding: 0.25rem 0;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.sano-check-label  .tickbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px #F7D2D2 solid;
+    border-radius: 2px;
+    flex-shrink: none;
+    position: relative;
+    background-color: rgba(247,210,210,0.05);
+}
+
+.sano-check-label span {
+    padding-left: 0.65rem;
+}
+
+@media (min-width: 450px) {
+    .sano-check-label span {
+        font-size: 1.125rem;
+    }
+}

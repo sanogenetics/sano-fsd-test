@@ -1,0 +1,23 @@
+#!/bin/bash
+
+hashfile="package-lock.md5"
+hash=$(md5sum package-lock.json)
+
+if [ -f "$hashfile" ]
+then
+    stored_hash=$(head -n 1 $hashfile)
+    if [ "$stored_hash" == "$hash" ]
+    then
+        npm run serve
+    else
+        npm ci
+        hash=$(md5sum package-lock.json)
+        echo "$hash" > "$hashfile"
+        npm run serve
+    fi
+else
+    npm ci
+    hash=$(md5sum package-lock.json)
+    echo "$hash" > "$hashfile"
+    npm run serve
+fi

@@ -1,0 +1,7 @@
+{
+    "env": "local",
+    "connection_string": "postgresql://localhost/fsd",
+    "jwt_secret": "]nGQWnDQneT81L]rY",
+    "secret_salt": "$2b$12$Qonofa6lGPWUZ2acht.YW.",
+    "base_url": "http://localhost:2000"
+}

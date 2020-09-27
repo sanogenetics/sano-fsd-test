@@ -1,0 +1,14 @@
+.DS_Store
+/misc
+/.vscode
+.ropeproject/
+.git
+*.pem
+*secrets*
+*secret_keys/*
+*venv*
+*.txt.zip*
+*.full.*
+*.large.*
+*.pyc*
+	

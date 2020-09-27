@@ -1,0 +1,352 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/base.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/base";
+ */
+ @tailwind base;
+
+ /**
+  * This injects any component classes registered by plugins.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/components";
+  */
+ @tailwind components;
+
+ /**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+
+ /**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/utilities";
+  */
+ @tailwind utilities;
+
+ /**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  *
+  * Example :
+  *
+  * .bg-pattern-graph-paper { ... }
+  * .skew-45 { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "utilities/background-patterns";
+  * @import "utilities/skew-transforms";
+  */
+
+@import 'main-text.css';
+@import 'main-form-elements.css';
+@import 'buttons-modals.css';
+
+/**
+* Sano utility classes
+**/
+
+.noSelect {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.spinnerCenter {
+    width: 200px;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.sano-content-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+}
+
+.sano-screenreader-only {
+    position: absolute;
+    left: -99999px;
+}
+
+/* 'pin' helpers */
+.sano-pin-v-mid,
+.sano-pin-v-mid-high {
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.sano-pin-v-mid-high {
+    top: 28%;
+}
+
+.sano-pin-v-mid {
+    top: 50%;
+}
+
+.sano-sidebar-sect {
+    @apply text-left bg-white py-5 px-4 border-b border-sano-pink text-sano-burgundy relative;
+}
+
+
+@media (min-width: 576px) {
+    .sano-sidebar-sect {
+        @apply py-8;
+    }
+}
+
+@media (min-width: 992px) {
+    .sano-sidebar-sect {
+        @apply px-6;
+    }
+}
+
+/* Let the nav bars extend a bit outside of the container on xl screens */
+@media (min-width: 1280px) {
+    .sano-wider-nav {
+        margin-left: -3rem;
+        width: calc(100% + 6rem);
+    }
+}
+
+/* Keep consistent padding on all containers */
+@media (max-width: 1152px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Helper class for extending a background colour outside of a holder element (always set overflow-hidden on a parent)*/
+.sano-extend-sides {
+    @apply relative;
+}
+
+.sano-extend-sides:before {
+    content: "";
+    background: inherit;
+    @apply absolute top-0 bottom-0;
+    width: 9999px;
+    left: -9999px;
+}
+
+.sano-extend-sides:after {
+    content: "";
+    background: inherit;
+    @apply absolute top-0 bottom-0;
+    width: 9999px;
+    left: 100%;
+}
+
+/* svgs which should fill their containing elements */
+/* probably inserted into html with <use> tag */
+.sano-use-svg,
+.sano-use-svg svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* [Temporary?] clunky solution following slightly evil chrome update */
+.sano-use-svg svg,
+svg.sano-use-svg:not(.h-0):not(.h-1):not(.h-2):not(.h-3):not(.h-4):not(.h-5):not(.h-6):not(.h-8):not(.h-10):not(.h-12):not(.h-16):not(.h-20):not(.h-24) {
+    height: 100%;
+}
+
+.sano-svg-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* svg colours */
+.sano-svg-red-orange {
+    fill: #F75338;
+    stroke: #F75338;
+}
+
+.sano-svg-blue {
+    fill: #433EA5;
+    stroke: #433EA5;
+}
+
+.sano-svg-burgundy {
+    fill: #54223B;
+    stroke: #54223B;
+}
+
+.sano-svg-white {
+    fill: #FFF;
+    stroke: #FFF;
+}
+
+.sano-svg-pink {
+    fill: #F7D2D2;
+    stroke: #F7D2D2;
+}
+
+.sano-svg-yellow {
+    fill: #FFD708;
+    stroke: #FFD708;
+}
+
+/* svg logo lockup */
+.sano-logo-lockup {
+    padding-top: 18.57%;
+    position: relative;
+}
+
+.sano-logo-lockup div {
+    position: absolute;
+    top: 0;
+    bottom:0;
+}
+
+.sano-logo-lockup div:first-child {
+    left: 0;
+    width: 33%;
+}
+
+.sano-logo-lockup div:last-child {
+    width: 61%;
+    right: 0;
+}
+
+/**
+* Sano custom focus
+**/
+
+a:focus,
+button:focus,
+input[type=text]:focus,
+input[type=tel]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+textarea:focus,
+.swal2-popup .sano-btn.sano-btn:focus {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    position: relative;
+    z-index: 20;
+    box-shadow: none;
+}
+
+a:focus:after,
+button:not(.sano-caro-dot-btn):not(.vs__deselect):focus:after,
+input[type=text]:focus + .sano-text-input-focuser,
+input[type=email]:focus + .sano-text-input-focuser,
+input[type=tel]:focus + .sano-text-input-focuser,
+input[type=password]:focus + .sano-text-input-focuser,
+input[type=number]:focus + .sano-text-input-focuser,
+textarea:focus .sano-text-input-focuser,
+.swal2-popup .sano-btn.sano-btn:focus:after,
+.swal2-popup .swal2-close:focus:after,
+input[type=checkbox]:focus + .sano-toggle-checkbox:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #9EC3FB;
+    border-radius: inherit;
+}
+
+/* Sano border with gradient */
+/* (Add background colour class to this element with tailwind) */
+.sano-border-shine {
+    position: relative;
+}
+
+.sano-border-shine.absolute {
+    position: absolute;
+}
+
+.sano-border-shine:before,
+.sano-border-shine:after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    border-radius: inherit;
+}
+
+.sano-border-shine:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(65deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 10%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 65%, rgba(255,255,255,0.8) 80%, rgba(255,255,255,0.3) 100%);
+}
+
+.sano-border-shine-orange:before {
+    background: linear-gradient(65deg, rgba(247,83,56,0.4) 0%, rgba(247,83,56,0) 10%, rgba(247,83,56,0.6) 30%, rgba(247,83,56,0.1) 40%, rgba(247,83,56,0.4) 50%, rgba(247,83,56,0) 65%, rgba(247,83,56,0.6) 80%, rgba(247,83,56,0.2) 100%);
+}
+
+.sano-border-shine-blue:before {
+    background: linear-gradient(65deg, rgba(67,62,165,0.7) 0%, rgba(67,62,165,0) 10%, rgba(67,62,165,0.8) 30%, rgba(67,62,165,0.1) 40%, rgba(67,62,165,0.7) 50%, rgba(67,62,165,0) 65%, rgba(67,62,165,0.7) 80%, rgba(67,62,165,0.2) 100%);
+}
+
+.sano-border-shine-pink:before {
+    background: linear-gradient(65deg, rgba(247,210,210,0.4) 0%, rgba(247,210,210,0) 10%, rgba(247,210,210,0.6) 30%, rgba(247,210,210,0.1) 40%, rgba(247,210,210,0.4) 50%, rgba(247,210,210,0) 65%, rgba(247,210,210,0.6) 80%, rgba(247,210,210,0.2) 100%);
+}
+
+/* temporary shift of intercom button on mobile - would be good to replace with custom launcher */
+@media (max-width: 991px) {
+    .intercom-launcher-frame {
+        transform: translate(1.5rem, -1.5rem) !important;
+    }
+}
+
+.bg-sano-light-gradient {
+    background-color: #FFF5F3;
+    background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,250,249,1) 100%);
+}
+
+/* Moved from previous study.vue */
+li {
+    @apply p-2
+}
+
+.disabled {
+    pointer-events:none;
+    opacity:0.3;
+}

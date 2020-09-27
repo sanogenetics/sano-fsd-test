@@ -1,0 +1,204 @@
+/* Sano new buttons - 11/03/19 */
+
+.sano-btn {
+    @apply px-8 py-2 no-underline border rounded-sm inline-block relative;
+    font-family: 'Gramatika-Regular', sans-serif;
+    line-height: 20px;
+    overflow: visible;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sano-btn:before,
+.sano-btn:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+}
+
+.sano-btn:before {
+    box-shadow: 0 12px 14px 0 rgba(138,56,97,0.1);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+}
+
+.sano-btn:not(.no-hover-trans):hover {
+    transform: translateY(-3px);
+}
+
+.sano-btn:not(.no-hover-trans):hover:before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sano-btn-sm {
+    padding-top: 0.35rem;
+    padding-bottom: 0.4rem;
+}
+
+.sano-btn-narrow {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sano-btn-x-narrow {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+
+/* allow components to hide focus on mouse interations */
+/* Moved here to avoid repeating in multiple elements */
+.hide-focus-children a:focus:after,
+.hide-focus-children button:focus:after,
+.hide-focus-children input[type=checkbox]:focus + .sano-toggle-checkbox:after {
+    border-width: 0 !important;
+}
+/* Sano new buttons end */
+
+/* Sano updated sweetalert2 modals */
+
+.sano-modal.swal2-popup {
+    border-radius: 0 0 2px 2px;
+    border-top: 4px solid #433EA5;
+    font-family: 'Gramatika-Regular', sans-serif;
+    font-weight: normal;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 768px;
+    background-color: #FFF;
+    box-shadow: 0 12px 14px 0 rgba(138,56,97,0.1);
+}
+
+.sano-modal.swal2-popup svg {
+    display: inline-block;
+}
+
+.sano-modal.swal2-popup .swal2-close {
+    overflow: visible;
+    right: 2px;
+    top: 2px;
+    height: 1.1em;
+    line-height: 1;
+    box-sizing: content-box;
+    padding: 0 0 0.3rem 0;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .sano-modal.swal2-popup .swal2-close {
+        right: 1rem;
+        top: 0.875rem;
+    }
+}
+
+.sano-modal.swal2-popup .swal2-actions {
+    width: 100%;
+    margin-top: 0.75rem;
+    justify-content: center;
+}
+
+.sano-modal .sano-btn {
+    margin-bottom: 0.25rem;
+}
+
+.sano-modal .sano-btn:first-child {
+    margin-right: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    .sano-modal.swal2-popup .swal2-actions {
+        margin-bottom: 0.5rem;
+        justify-content: flex-end;
+    }
+}
+
+/* Previous / Next survey slider buttons */
+
+.prev-next-btn-holder {
+    @apply h-24 overflow-hidden absolute;
+    width: 42px;
+}
+
+.prev-next-btn {
+    position: absolute !important;
+    @apply w-20 h-20 rounded-full flex flex-col justify-center;
+}
+
+.prev-next-btn .arrow {
+    @apply block w-4 h-4;
+}
+
+@media (min-width: 1280px) {
+    .prev-next-btn-holder {
+        @apply w-24;
+    }
+}
+
+@media (max-width: 575px) {
+    .prev-next-btn {
+        @apply w-16 h-16;
+    }
+
+    .prev-next-btn .arrow {
+        @apply w-3 h-3;
+    }
+}
+
+/* Button Sano Burgundy Transparent Grey */
+.btn-burgundy-grey {
+    @apply text-sano-burgundy border-grey-light font-normal border rounded-full no-underline text-center bg-grey-lightest
+}
+.btn-burgundy-grey:hover {
+    @apply shadow-sano-standard
+}
+.btn-burgundy-grey:focus {
+    @apply outline-none
+}
+
+/* Button Sano Blue */
+.btn-blue {
+    @apply text-white bg-sano-blue border-sano-blue font-normal border rounded-full no-underline text-center
+}
+.btn-blue:hover {
+    @apply shadow-sano-standard
+}
+.btn-blue:focus {
+    @apply outline-none
+}
+
+/* Button Sano Blue Transparent */
+.btn-blue-transparent {
+    @apply text-sano-blue border-sano-blue font-normal border rounded-full no-underline text-center
+}
+.btn-blue-transparent:hover {
+    @apply shadow-sano-standard
+}
+.btn-blue-transparent:focus {
+    @apply outline-none
+}
+
+/* Button Sano Burgundy */
+.btn-burgundy {
+    @apply text-white bg-sano-burgundy border-sano-burgundy font-normal border rounded-full no-underline text-center
+}
+.btn-burgundy:hover {
+    @apply shadow-sano-standard
+}
+.btn-burgundy:focus {
+    @apply outline-none
+}
+
+/* Button Sano Burgundy Transparent */
+.btn-burgundy-transparent {
+    @apply text-sano-burgundy border-sano-burgundy font-normal border rounded-full no-underline text-center
+}
+.btn-burgundy-transparent:hover {
+    @apply shadow-sano-standard
+}
+.btn-burgundy-transparent:focus {
+    @apply outline-none
+}

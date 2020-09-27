@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# load this project's python environment
+source venv/bin/activate
+# set flask's environment to development 
+export FLASK_ENV=development
+
+hashfile="requirements.md5"
+hash=$(md5sum requirements.txt)
+
+if [ -f "$hashfile" ]
+then
+    stored_hash=$(head -n 1 $hashfile)
+    if [ "$stored_hash" == "$hash" ]
+    then
+        # run the flask server locally
+        python run/run_local.py
+    else
+        # install any new requirements
+        pip install pip-tools
+        pip-sync
+        # save the new hash
+        hash=$(md5sum requirements.txt)
+        echo "$hash" > "$hashfile"
+        # run the flask server locally
+        python run/run_local.py
+    fi
+else
+    # install any new requirements
+    pip install pip-tools
+    pip-sync && pip install -r requirements-dev.txt
+    # save the new hash
+    hash=$(md5sum requirements.txt)
+    echo "$hash" > "$hashfile"
+    # run the flask server locally
+    python run/run_local.py
+fi

@@ -1,0 +1,134 @@
+/**
+* Gramatika fonts (a few are preloaded in index.html)
+**/
+@font-face {
+    font-family: 'Gramatika-Bold';
+    font-display: swap;
+    src: local('Gramatika-Bold'), url(' ../fonts/38F79D_5_0.woff2') format('woff2'),url(' ../fonts/38F79D_5_0.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gramatika-MediumItalic';
+    font-display: swap;
+    src: local('Gramatika-MediumItalic'), url(' ../fonts/38F79D_9_0.woff2') format('woff2'),url(' ../fonts/38F79D_9_0.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gramatika-LightItalic';
+    font-display: swap;
+    src: local('Gramatika-LightItalic'), url(' ../fonts/38F79D_8_0.woff2') format('woff2'),url(' ../fonts/38F79D_8_0.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gramatika-Italic';
+    font-display: swap;
+    src: local('Gramatika-Italic'), url(' ../fonts/38F79D_7_0.woff2') format('woff2'),url(' ../fonts/38F79D_7_0.woff') format('woff');
+}
+
+/**
+* Sano text, standardised header sizes
+**/
+html,
+body {
+    font-family: 'Gramatika-Regular', sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1:not(.leading-tight):not(.leading-normal),
+h2:not(.leading-tight):not(.leading-normal),
+h3:not(.leading-tight):not(.leading-normal),
+h4:not(.leading-tight):not(.leading-normal) {
+    line-height: 1.15;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+
+.sano-h1:not(.leading-tight):not(.leading-normal) {
+    line-height: 1.05;
+}
+
+.sano-h1 {
+    font-size: 3rem;
+}
+
+.sano-h2:not(.leading-tight):not(.leading-normal) {
+    line-height: 1.05;
+}
+
+.sano-h2 {
+    font-size: 2.25rem;
+}
+
+.sano-h2-small {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    letter-spacing: 0.5px;
+}
+
+.sano-h3 {
+    font-size: 1.875rem;
+}
+
+/* Landing page design often uses relatively small h2/h3s useful where an
+** element should technically be h2/h3 but not standard/noticeable */
+.sano-small-h2-h3 {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 767px) {
+    .sano-h1 {
+        font-size: 2rem;
+    }
+
+    .sano-h2 {
+        font-size: 1.75rem;
+    }
+
+    .sano-h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/**
+* Sano text utility classes
+**/
+
+.overflow-ellipsis p,
+.overflow-ellipsis span {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sano-italic {
+    font-family: 'Gramatika-Italic', sans-serif;
+}
+
+.sano-light {
+    font-family: 'Gramatika-Light', sans-serif;
+}
+
+.sano-light-italic {
+    font-family: 'Gramatika-LightItalic', sans-serif;
+}
+
+.sano-medium {
+    font-family: 'Gramatika-Medium', sans-serif;
+}
+
+.sano-medium-italic {
+    font-family: 'Gramatika-MediumItalic', sans-serif;
+}
+
+.sano-bold {
+    font-family: 'Gramatika-Bold', sans-serif;
+}
+
+.sano-regular {
+    font-family: 'Gramatika-Regular', sans-serif;
+}
