@@ -7,7 +7,7 @@ from core.models import Studies
 
 Studies.delete().execute()
 
-url = "https://sanogenetics.com/prod/"
+url = "https://dev.sanogenetics.com/dev/public/read/studies"
 studies = requests.get(url + "/studies").json()["studies"]
 
 for study in studies:
