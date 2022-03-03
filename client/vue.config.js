@@ -28,9 +28,20 @@ module.exports = {
     },
 
     devServer: {
-        host: "0.0.0.0",
         port: 2000,
-        disableHostCheck: true,
+        proxy: {
+            "^/api": {
+                target: "http://localhost:5000",
+                changeOrigin: true,
+                secure: false,
+                pathRewrite: {
+                    "^/api": "",
+                },
+                headers: {
+                    Connection: "keep-alive",
+                },
+            },
+        },
     },
 
     lintOnSave: false,
