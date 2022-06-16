@@ -7,7 +7,7 @@ from core.models import Studies
 
 Studies.delete().execute()
 
-studies = requests.get("https://dev.sanogenetics.com/dev/studies").json()
-
+res = requests.get("https://dev.sanogenetics.com/dev/studies").json()
+studies = res["data"]
 for study in studies:
     Studies.create(**study)
