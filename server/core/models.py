@@ -8,8 +8,8 @@ import logging
 import os
 import re
 from datetime import datetime as dt
+from playhouse.sqlite_ext import SqliteExtDatabase, JSONField
 
-import boto3
 import pytz
 import shortuuid
 from peewee import (
@@ -23,17 +23,16 @@ from peewee import (
     Model,
     TextField
 )
-from playhouse.db_url import connect
-from playhouse.postgres_ext import ArrayField, DateTimeTZField, JSONField
 
 from core.config import config
-
-import peeweedbevolve  # isort:skip
 
 logger = logging.getLogger(__name__)
 logger.info("Creating a new database connection")
 
-db = connect(config["connection_string"], autorollback=True)
+db = SqliteExtDatabase(
+    database="sano.db",
+    pragmas=(("foreign_keys", 1),),  # Enforce foreign-key constraints.
+)
 
 tz = pytz.timezone("Europe/London")
 
@@ -52,8 +51,8 @@ def make_table_name(model_class):
 # fmt: off
 class BaseModel(Model):
     id = CharField(primary_key=True, default=lambda: shortuuid.uuid())
-    created_at = DateTimeTZField(default=lambda: dt.now(tz))
-    updated_at = DateTimeTZField(default=lambda: dt.now(tz))
+    created_at = DateTimeField(default=lambda: dt.now(tz))
+    updated_at = DateTimeField(default=lambda: dt.now(tz))
 
     def save(self, *args, **kwargs):
         self.updated_at = dt.now(tz)
@@ -70,9 +69,9 @@ class Users(BaseModel):
     password_hash = CharField(255, null=True)
     email_validated = BooleanField(default=False)
     validation_token_hash = CharField(255, null=True)
-    validation_token_expiry = DateTimeTZField(null=True)
+    validation_token_expiry = DateTimeField(null=True)
     reset_token_hash = CharField(255, null=True)
-    reset_token_expiry = DateTimeTZField(null=True)
+    reset_token_expiry = DateTimeField(null=True)
     registration_source = CharField(255, null=True)
 
 
@@ -85,7 +84,8 @@ class Studies(BaseModel):
     researcher_email = CharField(100, default="")  # TBD shouldn't this be null instead of default "" if there is no researcher email specified? (will change this anyway)
 
 
-if os.getenv("TEST") == "True":
-    db.evolve(interactive=False)
-else:
-    db.evolve(interactive=True)
+def create_tables():
+    with db:
+        db.create_tables([Users, Studies], safe=True)
+
+create_tables()
