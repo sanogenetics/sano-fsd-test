@@ -3,7 +3,7 @@
 # Installation
 
 - Install Python 3.8 and Node 12.x.x
-- Within the `server` folder, create and activate a Python virtual environment (tested to work using Python 3.8.5[anaconda]):
+- Within the `server` folder, create and activate a Python virtual environment (tested to work on OSX M1 using Python 3.8.5 - Anaconda):
   - `pip install virtualenv`
   - `python3 -m venv venv`
   - Activate the virtual env
